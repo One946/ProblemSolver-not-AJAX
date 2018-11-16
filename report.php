@@ -60,8 +60,12 @@
             <p class="posiziona">Carica una foto</p> <input type="file" name="foto" class="foto" accept="image/*"> 
             <p class="posiziona">Seleziona una categoria</p>
             <select type="text" id="categoria" name="categoria" class="categoria" required>
-                    <option value="sanita">Sanità</option>
-                    <option value="trasporti">Trasporti</option>
+                    <option value="sanita">sanita</option>
+                    <option value="trasporti">trasporti</option>
+                    <option value="trasporti">ordine pubblico</option>
+                    <option value="trasporti">istruzione</option>
+                    <option value="trasporti">amministrazione</option>
+                    <option value="trasporti">altro</option>
             </select> 
             <button type="submit" id="button"style ="margin-left: 300px;" onclick="sendProb()">Invia!</button>
 
