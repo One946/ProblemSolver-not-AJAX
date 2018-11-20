@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	$_SESSION["secretID"] = 0;
+	$_SESSION["secretID"] = 45;
 ?>
 
 <!DOCTYPE html>
@@ -78,6 +78,6 @@
 			document.getElementById("side-menu").style.width="0px"
 			document.getElementById("main.").style.marginLeft="0px"
 		}
-	</script>
+		</script>
 </body>
 </html>

@@ -62,10 +62,10 @@
             <select type="text" id="categoria" name="categoria" class="categoria" required>
                     <option value="sanita">sanita</option>
                     <option value="trasporti">trasporti</option>
-                    <option value="trasporti">ordine pubblico</option>
-                    <option value="trasporti">istruzione</option>
-                    <option value="trasporti">amministrazione</option>
-                    <option value="trasporti">altro</option>
+                    <option value="ordine pubblico">ordine pubblico</option>
+                    <option value="istruzione">istruzione</option>
+                    <option value="amministrazione">amministrazione</option>
+                    <option value="altro">altro</option>
             </select> 
             <button type="submit" id="button"style ="margin-left: 300px;" onclick="sendProb()">Invia!</button>
 

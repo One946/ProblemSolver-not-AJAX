@@ -1,41 +1,39 @@
 <?php
     require("config/db.php");
     if (isset($_REQUEST)){
-    var_dump($_REQUEST);
-    
-    
 }
 
     $tag = $_REQUEST["tag"];
-    var_dump($tag);
-    /*
+
     //inserimento tag nel database
     $arrayTag= explode(" ", $tag); //divido la singola stringa che ricevo come input dei tag in tanti piccoli tag da inserire nel dizionario o da legare al problema
-    for($i=0; i<count($arrayTag) ; $i++){
-        //query di inserimento tag
-        $qTag = "INSERT INTO DizionarioTag (descrizione) VALUES ('$arrayTag[$i]')";
-        $risTag=mysqli_query($conn, $risTag);
-        echo($risTag);
-
-        //query per ottenere l'id del tag appena inserito nel dizionario
-        $qIdTag= "SELECT idTag FROM DizionarioTag WHERE descrizione = '$arrayTag[$i]'";
-
-        $risIdTag= mysqli_query($conn,$qIdTag);
-
-        if(mysqli_query($conn, $qTag) && $risIdTag){
-            
-            $idTag = mysqli_fetch_assoc($risIdTag);
-            //query di collegamento Tag-Problema sostituire l'id problema provvisorio con la variabile $a
-            $qBridge = "INSERT INTO tagBridge (idProblema, idTag) VALUES (30,'{$idTag["idTag"]}')";
-            
-            if(mysqli_query($conn, $qBridge)){
-                
-                $b="il tag è stato inserito correttamente";
-            }
-        }
+  
+       foreach ($arrayTag as $arrayTag){
+            //query di inserimento tag
+            $qTag = "INSERT INTO DizionarioTag (descrizione) VALUES ('$arrayTag')";
+            $exqTag=mysqli_query($conn,$qTag);
+//           devo verificare che la query è andata a buon fine?
     
-    }
-*/
+            //query per ottenere l'id del tag appena inserito nel dizionario
+            $qIdTag= "SELECT idTag FROM DizionarioTag WHERE descrizione = '$arrayTag'";
+            $risIdTag= mysqli_query($conn,$qIdTag);
+            $idTag = mysqli_fetch_assoc($risIdTag);
+            $valId = $idTag['idTag'];
+            echo($valId);
+            if($valId){
+                
+                
+                //query di collegamento Tag-Problema sostituire l'id problema provvisorio con la variabile $a
+                $qBridge = "INSERT INTO tagBridge (idProblema, idTag) VALUES (30,'$valId')";
+                echo($conn->query($qBridge)); //PDO
+                if($conn->query($qBridge)){
+                    
+                    $b="il tag è stato inserito correttamente";
+                    echo($b);
+                }else{ echo 'errore!';}
+       }
+        
+        } 
 ?>
 
 <!DOCTYPE html>
