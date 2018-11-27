@@ -206,6 +206,12 @@ input[type=submit] {
 	margin-bottom: 30px
 }
 
+/* commenti problema */
+.commento{
+	margin-left: 10 px;
+	margin-right: 10 px;
+}
+
 @media(max-height: 610px){
 	img.logo{
 		display: none;

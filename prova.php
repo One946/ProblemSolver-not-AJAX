@@ -38,8 +38,8 @@
             </span>
             <ul class="navbar-nav">
                 <li><a href="http://localhost/PROblemSolver/index.php">Home</a></li>
-                <li><a href="http://localhost/PROblemSolver/prova.php">Naviga Problemi</a></li>
-                <li><a href="#">Riporta Problema</a></li>
+                <li><a href="#">Naviga Problemi</a></li>
+                <li><a href="http://localhost/PROblemSolver/report.php">Riporta Problema</a></li>
                 <li><a href="http://localhost/PROblemSolver/login.php">Login/Registrati</a></li>
             </ul>
 

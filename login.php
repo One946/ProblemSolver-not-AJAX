@@ -51,7 +51,7 @@
 				<label for="psw"><b>Password</b></label>
 				<input type="password" name="password" placeholder="Password" required>
 				<input type="submit" value="Login">
-				<p><a href="#">Non sei ancora registrato? Registrati.</a></p>
+				<p><a href="http://localhost/PROblemSolver/registrati.php">Non sei ancora registrato? Registrati.</a></p>
 			</form>
 		</div>
 

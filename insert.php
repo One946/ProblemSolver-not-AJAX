@@ -4,6 +4,7 @@
 
     //inizializzazione variabili da inserire nel db
     //il comando myqli_real_escape_string non funziona come mi aspetto
+    var_dump($_REQUEST);
     $anonimo = $_REQUEST["anonimo"];
     $titolo = $_REQUEST["titolo"];
     $descrizione = $_REQUEST["descrizione"];
@@ -20,7 +21,7 @@
     //la variabile secretID viene presa dalla sessione dell'utente loggato per tanto per ora è arbitraria come la variabile votourgenza
     // allineare variabili categoria con quelle del db
     //query di inserimento problema nel db
-    $qProb= "INSERT INTO Problemi (secretID, votoUrgenza, tag, boolAnonimo, idUbicazione, idCategoria, descrizione, titolo) VALUES (0, 0, '".$tag."', ".$anonimo.", 2, 1, '".$descrizione."', '".$titolo."')" ;
+    $qProb= "INSERT INTO Problemi (secretID, votoUrgenza, boolAnonimo, idUbicazione, idCategoria, descrizione, titolo) VALUES (0, 0, ".$anonimo.", 2, 1, '".$descrizione."', '".$titolo."')" ;
    
    
     if (mysqli_query($conn, $qProb)) {
@@ -113,10 +114,10 @@
 		<!--Menu a scomparsa-->
 			<div id="side-menu" class="side-nav">
 					<a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
-					<a href="#">Home</a>
-					<a href="#">Naviga Problemi</a></a>
-					<a href="#">Riporta Problema</a>
-					<a href="#">Login/Registrati</a>
+					<a href="http://localhost/PROblemSolver/index.php">Home</a>
+					<a href="http://localhost/PROblemSolver/prova.php">Naviga Problemi</a></a>
+					<a href="http://localhost/PROblemSolver/report.php">Riporta Problema</a>
+					<a href="http://localhost/PROblemSolver/login.php">Login/Registrati</a>
 			</div>
 </div>
 

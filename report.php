@@ -49,7 +49,7 @@
 <!--FORM INSERIMENTO PROBLEMA-->
 
     <div>
-        <form action="insert.php" method="POST" enctype="multipart/form-data">
+        <form method= 'POST' action="insert.php"  enctype="multipart/form-data">
             <label for="titolo"><b> Inserisci il titolo del problema: </b></label> <br>
             <input type="text" id="titolo" name="titolo" class="titolo" placeholder="TITOLO" required> <br>
             <label for="descrizione"><b> Descrivi il problema che hai riscontrato: </b></label> <br>
@@ -57,7 +57,7 @@
             <label for="tag"><b>Inerisci alcuni tag per caratterizzare il problema</b></label> <br>
             <input type="text" id="tag" name="tag" class="tag" placeholder="Inserisci dei tag per caratterizzare il problema "> <br><br>
             <input type="checkbox" id="anonimo" name="anonimo" class="anonimo">Desideri rimanere anonimo? <br><br>
-            <p class="posiziona">Carica una foto</p> <input type="file" name="foto" class="foto" accept="image/*"> 
+            <!--p class="posiziona">Carica una foto</p> <input type="file" name="foto" class="foto" accept="image/*"   id="prova"--> 
             <p class="posiziona">Seleziona una categoria</p>
             <select type="text" id="categoria" name="categoria" class="categoria" required>
                     <option value="sanita">sanita</option>
@@ -66,13 +66,15 @@
                     <option value="istruzione">istruzione</option>
                     <option value="amministrazione">amministrazione</option>
                     <option value="altro">altro</option>
-            </select> 
-            <button type="submit" id="button"style ="margin-left: 300px;" onclick="sendProb()">Invia!</button>
+            </select>
+            <!--button type="submit" id="button"style ="margin-left: 300px;" onclick="sendProb()">Invia!</button-->
+            <button type="submit" id="button"style ="margin-left: 300px;">Invia!</button>
 
         </form>
         <script>
+            //document.getElementById('button').addEventListener('click', sendProb);
             //funzione per creare il json da inviare con la richiesta asincrona
-            function createJson(){
+            /*function createJson(){
                 var myObj = {
                     titolo : document.getElementById("titolo").value,
                     descrizione : document.getElementById("descrizione").value,
@@ -81,14 +83,15 @@
                     categoria: document.getElementById("categoria").value
                 };
                 return myObj;
-            }
+            } */
             // funzione per effetturare la richiesta asincrona
-            function sendProb(){
+            /*function sendProb(){
                 var json = createJson();
                 var xhr = new XMLHttpRequest();
                 xhr.open("POST","insert.php",true);
                 xhr.send(json);
-            }
+                console.log(this.responseText);
+            }*/
                 
         </script>
     </div>
