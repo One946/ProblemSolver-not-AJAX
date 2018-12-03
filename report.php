@@ -57,7 +57,6 @@
             <label for="tag"><b>Inerisci alcuni tag per caratterizzare il problema</b></label> <br>
             <input type="text" id="tag" name="tag" class="tag" placeholder="Inserisci dei tag per caratterizzare il problema "> <br><br>
             <input type="checkbox" id="anonimo" name="anonimo" class="anonimo">Desideri rimanere anonimo? <br><br>
-            <!--p class="posiziona">Carica una foto</p> <input type="file" name="foto" class="foto" accept="image/*"   id="prova"--> 
             <p class="posiziona">Seleziona una categoria</p>
             <select type="text" id="categoria" name="categoria" class="categoria" required>
                     <option value="sanita">sanita</option>
@@ -71,33 +70,11 @@
             <button type="submit" id="button"style ="margin-left: 300px;">Invia!</button>
 
         </form>
-        <script>
-            //document.getElementById('button').addEventListener('click', sendProb);
-            //funzione per creare il json da inviare con la richiesta asincrona
-            /*function createJson(){
-                var myObj = {
-                    titolo : document.getElementById("titolo").value,
-                    descrizione : document.getElementById("descrizione").value,
-                    tag: document.getElementById("tag").value,
-                    anonimo: document.getElementById("anonimo").value,
-                    categoria: document.getElementById("categoria").value
-                };
-                return myObj;
-            } */
-            // funzione per effetturare la richiesta asincrona
-            /*function sendProb(){
-                var json = createJson();
-                var xhr = new XMLHttpRequest();
-                xhr.open("POST","insert.php",true);
-                xhr.send(json);
-                console.log(this.responseText);
-            }*/
-                
-        </script>
     </div>
 
 
    <script>
+   //script per il menù a scomparsa 
         function openSlideMenu(){
             document.getElementById("side-menu").style.width="250px"
             document.getElementById("main.").style.marginLeft="250px"

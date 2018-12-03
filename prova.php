@@ -2,9 +2,8 @@
     require("config/db.php");
     require("config/config.php");
     session_start();
-
-    $query1 = "SELECT * FROM Problemi ORDER BY idProblema DESC";
-
+//Query per selezionare tutti i problemi che non sono stati risolti e visualizzarli
+    $query1 = "SELECT * FROM Problemi  WHERE idProblema NOT IN (SELECT idProblema FROM Segnalazioni WHERE dataRisol>dataSegn)ORDER BY idProblema DESC";
     
     //Prendi il risultato
     $ris1 = mysqli_query($conn, $query1);
@@ -57,7 +56,9 @@
 
 
    <!-- faccio un ciclo per mostrare tutti i problemi-->
-    <?php foreach($prob as $titoli) : ?>
+    <?php
+    
+        foreach($prob as $titoli) : ?>
 
         <div style="opacity:0.95; background: #f4f4f4; margin: auto; width:1000px; border-radius: 20px; text-align: center; color: #3b5998;   ">
             <h3><?php echo $titoli["titolo"];?></h3>
@@ -66,8 +67,6 @@
 
         </div>
     <?php endforeach;?>
-
-
 
 </div>
 

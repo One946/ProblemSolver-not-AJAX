@@ -1,4 +1,5 @@
 <?php
+//creo una sessione per rendere le operazioni meno "hardcoded"
 	session_start();
 	$_SESSION["secretID"] = 45;
 ?>
@@ -14,8 +15,9 @@
 </head>
 <body background="messina.jpg">
 	
-	<!-- navbar -->
+
 	<div class="container">
+		<!-- navbar -->
 			<nav class="navbar">
 				<span class="open-slide">
 					<a href="#" onclick="openSlideMenu()">
@@ -53,18 +55,14 @@
 				</b>
 			</p>
 		</div>
-
 		<div></div>
+				
 		<!-- footer-->
-
 		<div class="footer">
 			<p>
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-
 			</p>
-
-
 		</div>
 	</div>
 	<script>

@@ -2,11 +2,12 @@
     require("config/config.php");
     require("config/db.php");
 	session_start();
-	$_SESSION["IdProblema"] = mysqli_real_escape_string($conn,$_GET["id"]);
+	$_SESSION["IdProblema"] = mysqli_real_escape_string($conn,$_GET["id"]); //mi faccio passarel'id del problema che l'utente ha selezionato tramite il metodo GET
+	//in questo caso lo salvo nella variabile di sessione perchè devo riutilizzarlo in una parte successiva dello script che va fuori dallo scope del primo
 
     //recupera l'id
     $id = mysqli_real_escape_string($conn,$_GET["id"]);
-
+	//query per prelvare problemi e segnalazioni
     $query1 = "SELECT * FROM Segnalazioni WHERE idProblema = ".$id;
     $query2 = "SELECT * FROM Problemi WHERE idProblema =".$id;
     
@@ -25,9 +26,7 @@
 	$risqt = mysqli_query($conn, $qt);
 	$aTag = [];
 	$i= 0;
-	while($row = mysqli_fetch_assoc($risqt)){
-		echo$row['descrizione']." ";
-	}
+
 	
 ?>
 
@@ -59,7 +58,7 @@
 				</span>
 				<ul class="navbar-nav">
 					<li> <a href="http://localhost/PROblemSolver/index.php">Home</a></li>
-					<li> <a href="http://localhost/PROblemSolver/prova.php" style="color">Naviga Problemi</a></li>
+					<li> <a href="http://localhost/PROblemSolver/prova.php">Naviga Problemi</a></li>
 					<li> <a href="http://localhost/PROblemSolver/report.php">Riporta Problema</a></li>
 					<li> <a href="http://localhost/PROblemSolver/login.php">Login/Registrati</a></li>
 				</ul>
@@ -110,7 +109,6 @@
 
 
 				<!--Sezione inserimento commenti--> 
-			<!--form action ="comment.php" method="POST" enctype="multipart/form-data"-->
 		<div style="width: 100%; overflow: hidden;">
 			<div style="width: 600px;float: left;">
 				<form id="getForm">
@@ -130,7 +128,6 @@
 								$_SESSION["IdProblema"] = mysqli_real_escape_string($conn,$_GET["id"]);
 							$query4= "SELECT idCommento,descrizione,secretId FROM Commenti WHERE idProblema=".$id;
 							$ris4 = mysqli_query($conn, $query4);
-							//$commenti = mysqli_fetch_all($ris4, MYSQLI_ASSOC);
 							$commenti=  mysqli_fetch_all($ris4,MYSQLI_ASSOC); 
 						 for($i=0;$i<count($commenti);$i++): ?>
 						<div style="opacity:0.95; background: #f4f4f4; margin: auto; width:1000px; border-radius: 20px; text-align: center; color: #3b5998;   ">
@@ -180,7 +177,6 @@
 			if(this.responseText === "inserimento avvenuto con successo"){
 				location.reload();
 			}
-			//location.reload(); 
 		}
 
 

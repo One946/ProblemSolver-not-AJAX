@@ -44,7 +44,8 @@
             <a href="http://localhost/PROblemSolver/report.php">Riporta Problema</a>
             <a href="#">Login/Registrati</a>
         </div>
-    
+
+<!--Form di registrazione-->   
     <h1>Registrati</h1>
     <p>Inserisci i tuoi dati per creare un account.</p>
 
@@ -77,6 +78,7 @@
 </div>
 
 <script>
+//sccript per menù a scomparsa
 		function openSlideMenu(){
 			document.getElementById("side-menu").style.width="250px"
 			document.getElementById("main.").style.marginLeft="250px"
