@@ -29,6 +29,7 @@
                     <li><a href="http://localhost/PROblemSolver/prova.php">Naviga Problemi</a></li>
                     <li><a href="http://localhost/PROblemSolver/report.php">Riporta Problema</a></li>
                     <li><a href="#">Login/Registrati</a></li>
+					<li><a href="http://localhost/PROblemSolver/cerca.php"> Cerca Problemi</a><li>
 				</ul>
 
 		</nav>
@@ -40,6 +41,7 @@
 				<a href="http://localhost/PROblemSolver/prova.php">Naviga Problemi</a></a>
 				<a href="http://localhost/PROblemSolver/report.php">Riporta Problema</a>
 				<a href="#">Login/Registrati</a>
+				<li><a href="http://localhost/PROblemSolver/cerca.php"> Cerca Problemi</a><li>
 		</div>
 
 		<!-- main body-->

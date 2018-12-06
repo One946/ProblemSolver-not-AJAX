@@ -2,8 +2,9 @@
     require("config/db.php");
     require("config/config.php");
     session_start();
-//Query per selezionare tutti i problemi che non sono stati risolti e visualizzarli
-    $query1 = "SELECT * FROM Problemi WHERE idProblema NOT IN (SELECT idProblema FROM Problemi WHERE dataSegn < dataRisol) ORDER BY idProblema DESC";
+//Query per selezionare tutti i problemi che non sono stati risolti e visualizzarli2
+    $query1 = "SELECT * FROM Utenti  WHERE secretID = (SELECT secretID FROM Problemi GROUP BY secretID ORDER BY COUNT(*) DESC LIMIT    1)";
+
     
     //Prendi il risultato
     $ris1 = mysqli_query($conn, $query1);
@@ -51,7 +52,6 @@
                 <a href="http://localhost/PROblemSolver/prova.php">Naviga Problemi</a></a>
                 <a href="#">Riporta Problema</a>
                 <a href="http://localhost/PROblemSolver/login.php">Login/Registrati</a>
-                <li><a href="http://localhost/PROblemSolver/cerca.php"> Cerca Problemi</a><li>
             </div>
     </div>
 
@@ -63,10 +63,9 @@
         foreach($prob as $titoli) : ?>
 
         <div style="opacity:0.95; background: #f4f4f4; margin: auto; width:1000px; border-radius: 20px; text-align: center; color: #3b5998;   ">
-            <h3><?php echo $titoli["titolo"];?></h3>
-            <p> <?php echo $titoli["descrizione"];?></p>
-            <a class="btn btn-default" href="<?php echo ROOT_URL;?>problema.php?id=<?php echo $titoli["idProblema"]; ?>" style="color: #3b5998;"><b>Per saperne di più</b></a>
-
+            <h1>L'utente che ha riportato più problemi è:    </h1>
+            <h2><?php echo ("Nome: ".$titoli["Nome"]."<br> Cognome: ". $titoli["Cognome"]);?></h2>
+            <p> <?php echo ("SecretID: ".$titoli["secretID"]);?></p>
         </div>
     <?php endforeach;?> 
 

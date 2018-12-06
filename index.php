@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-	<title>PROblemSolver</title>
+	<title>ProblemSolver</title>
 
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	
@@ -33,6 +33,7 @@
 					<li><a href="http://localhost/PROblemSolver/prova.php">Naviga Problemi</a></li>
 					<li><a href="http://localhost/PROblemSolver/report.php">Riporta Problema</a></li>
 					<li><a href="http://localhost/PROblemSolver/login.php">Login/Registrati</a></li>
+					<li><a href="http://localhost/PROblemSolver/cerca.php"> Cerca Problemi</a><li>
 				</ul>
 
 			</nav>
@@ -48,7 +49,7 @@
 
 		<!-- main body-->
 		<div class="stripe">
-			<h1>BENVENUTO NEL PORTALE PROblemSolver </h1>
+			<h1>BENVENUTO NEL PORTALE ProblemSolver </h1>
 			<p> 
 				<b>
 			riporta i tuoi problemi o consulta i problemi già riportati navigando tramite il menù soprastante

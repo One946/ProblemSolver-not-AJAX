@@ -1,5 +1,11 @@
 <?php
     session_start();
+    require("config/db.php");
+    require("config/config.php");
+    $q= "SELECT * FROM Categorie WHERE 1";
+    $ris=mysqli_query($conn,$q);
+        
+                        
 ?>
 
 
@@ -33,6 +39,7 @@
                 <li><a href="http://localhost/PROblemSolver/prova.php">Naviga Problemi</a></li>
                 <li><a href="#">Riporta Problema</a></li>
                 <li><a href="http://localhost/PROblemSolver/login.php">Login/Registrati</a></li>
+                <li><a href="http://localhost/PROblemSolver/cerca.php"> Cerca Problemi</a><li>
             </ul>
 
             </nav>
@@ -43,6 +50,7 @@
                 <a href="http://localhost/PROblemSolver/prova.php">Naviga Problemi</a></a>
                 <a href="#">Riporta Problema</a>
                 <a href="http://localhost/PROblemSolver/login.php">Login/Registrati</a>
+                <li><a href="http://localhost/PROblemSolver/cerca.php"> Cerca Problemi</a><li>
             </div>
     </div>
 
@@ -59,12 +67,15 @@
             <input type="checkbox" id="anonimo" name="anonimo" class="anonimo">Desideri rimanere anonimo? <br><br>
             <p class="posiziona">Seleziona una categoria</p>
             <select type="text" id="categoria" name="categoria" class="categoria" required>
-                    <option value="sanita">sanita</option>
-                    <option value="trasporti">trasporti</option>
-                    <option value="ordine pubblico">ordine pubblico</option>
-                    <option value="istruzione">istruzione</option>
-                    <option value="amministrazione">amministrazione</option>
-                    <option value="altro">altro</option>
+                <?php  
+                        $i=0;
+                        $categorie= mysqli_fetch_all($ris,MYSQLI_ASSOC);
+                        while($i<count($categorie)){
+                            echo'<option value="'.$categorie[$i]['descrizione'].'">'.$categorie[$i]['descrizione']."</option>";
+                            $i++;
+                        }
+                        $i=0;
+                ?>
             </select>
             <!--button type="submit" id="button"style ="margin-left: 300px;" onclick="sendProb()">Invia!</button-->
             <button type="submit" id="button"style ="margin-left: 300px;">Invia!</button>

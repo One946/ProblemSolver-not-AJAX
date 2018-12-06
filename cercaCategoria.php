@@ -2,8 +2,9 @@
     require("config/db.php");
     require("config/config.php");
     session_start();
-//Query per selezionare tutti i problemi che non sono stati risolti e visualizzarli
-    $query1 = "SELECT * FROM Problemi WHERE idProblema NOT IN (SELECT idProblema FROM Problemi WHERE dataSegn < dataRisol) ORDER BY idProblema DESC";
+//Query per selezionare tutti i problemi che non sono stati risolti e visualizzarli2
+    $query1 = "SELECT * FROM Problemi  WHERE idCategoria IN (SELECT idCategoria FROM Categorie WHERE descrizione = '{$_POST['categoria']}')";
+
     
     //Prendi il risultato
     $ris1 = mysqli_query($conn, $query1);

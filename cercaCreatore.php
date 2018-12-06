@@ -2,8 +2,10 @@
     require("config/db.php");
     require("config/config.php");
     session_start();
-//Query per selezionare tutti i problemi che non sono stati risolti e visualizzarli
-    $query1 = "SELECT * FROM Problemi WHERE idProblema NOT IN (SELECT idProblema FROM Problemi WHERE dataSegn < dataRisol) ORDER BY idProblema DESC";
+    var_dump($_POST);
+//Query per selezionare tutti i problemi che non sono stati risolti e visualizzarli2
+    $query1 = "SELECT * FROM Problemi  WHERE secretID IN (SELECT secretID FROM Utenti WHERE (Nome = '{$_POST['Nome']}') && (Cognome = '{$_POST['Cognome']}'))";
+
     
     //Prendi il risultato
     $ris1 = mysqli_query($conn, $query1);

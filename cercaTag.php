@@ -3,14 +3,34 @@
     require("config/config.php");
     session_start();
 //Query per selezionare tutti i problemi che non sono stati risolti e visualizzarli
-    $query1 = "SELECT * FROM Problemi WHERE idProblema NOT IN (SELECT idProblema FROM Problemi WHERE dataSegn < dataRisol) ORDER BY idProblema DESC";
-    
+$tag= $_POST["cercaTag"];
+$arrayTag= explode(" ", $tag);
+var_dump($arrayTag);
+$q="SELECT idTag from DizionarioTag WHERE descrizione= '".$arrayTag[0]."'";
+echo($q);
+//Prendi il risultato
+$risQ = mysqli_query($conn, $q);
+//Inserisco il risultato della query in un array associativo
+$pippo= mysqli_fetch_all($risQ,MYSQLI_ASSOC); var_dump ($pippo);
+//FARE CICLO PER PIU' TAG
+$prob=[];
+
+
+for ($i=0; $i<count($arrayTag); $i++){
+    $query1 = "SELECT * FROM Problemi  WHERE idProblema IN (SELECT idProblema FROM tagBridge WHERE idTag IN (SELECT idTag FROM DizionarioTag WHERE descrizione = '{$arrayTag[$i]}'))";
     //Prendi il risultato
     $ris1 = mysqli_query($conn, $query1);
     //Inserisco il risultato della query in un array associativo
-    $prob = mysqli_fetch_all($ris1,MYSQLI_ASSOC);
+    $a= mysqli_fetch_all($ris1,MYSQLI_ASSOC);
+    if($a === []){
+        continue;
+    } else{
+        $prob[$i]= $a;
+    }
     mysqli_free_result($ris);
-    mysqli_close($conn);
+}   
+//var_dump($prob);
+mysqli_close($conn);
 
 ?>
 <!DOCTYPE <!DOCTYPE html>
@@ -51,24 +71,24 @@
                 <a href="http://localhost/PROblemSolver/prova.php">Naviga Problemi</a></a>
                 <a href="#">Riporta Problema</a>
                 <a href="http://localhost/PROblemSolver/login.php">Login/Registrati</a>
-                <li><a href="http://localhost/PROblemSolver/cerca.php"> Cerca Problemi</a><li>
             </div>
     </div>
 
-
+    <?php
+        for($i=-0; $i<count($prob)+1;$i++){
+            foreach($prob[$i] as $titoli){
+            echo('<div style="opacity:0.95; background: #f4f4f4; margin: auto; width:1000px; border-radius: 20px; text-align: center; color: #3b5998;   ">');
+                echo("<h3>".$titoli["titolo"]."</h3>");
+                echo("<p>".$titoli["descrizione"]."</p>");
+                echo('<a class="btn btn-default" href="'.ROOT_URL.'problema.php?id='.$titoli["idProblema"].'"style="color: #3b5998;"><b>Per saperne di più</b></a>');
+                echo("<b>"."PIPPO"." </b>");
+                echo'</div>';  
+            }
+        }
+    ?>
 
    <!-- faccio un ciclo per mostrare tutti i problemi-->
-    <?php
-    
-        foreach($prob as $titoli) : ?>
 
-        <div style="opacity:0.95; background: #f4f4f4; margin: auto; width:1000px; border-radius: 20px; text-align: center; color: #3b5998;   ">
-            <h3><?php echo $titoli["titolo"];?></h3>
-            <p> <?php echo $titoli["descrizione"];?></p>
-            <a class="btn btn-default" href="<?php echo ROOT_URL;?>problema.php?id=<?php echo $titoli["idProblema"]; ?>" style="color: #3b5998;"><b>Per saperne di più</b></a>
-
-        </div>
-    <?php endforeach;?> 
 
 </div>
 

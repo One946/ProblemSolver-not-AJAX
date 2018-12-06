@@ -19,7 +19,7 @@
 
     //la variabile secretID viene presa dalla sessione dell'utente che ha effettuato il login
     //query di inserimento problema nel db
-    $qProb= "INSERT INTO Problemi (secretID, boolAnonimo, idUbicazione, idCategoria, descrizione, titolo) VALUES (0, ".$anonimo.", 2, 1, '".$descrizione."', '".$titolo."')" ;
+    $qProb= "INSERT INTO Problemi (secretID, boolAnonimo, idUbicazione, idCategoria, descrizione, titolo) VALUES (".$_SESSION["secretID"].", ".$anonimo.", 2, 1, '".$descrizione."', '".$titolo."')" ;
    
    
     if (mysqli_query($conn, $qProb)) { //se la query va a buon fine eseguo la queri per ottenere l'id del problema creato che viene creato in automatico tramite l'auto increment
@@ -35,15 +35,6 @@
         echo "Error: ". mysqli_error($conn);
     }
 
-
-    //query di creazione della segnalazione
-    $qSegn="INSERT INTO Segnalazioni (idProblema) VALUES($a)";
-    if (mysqli_query($conn, $qSegn)) {
-        $b= "La segnalazione del problema è avvenuta correttamente!";
-    }else {
-        $b= "si è verificato un errore riprova";
-        die(mysqli_error($conn));
-    }
 
     
     //inserimento tag nel database
@@ -107,6 +98,7 @@
 					<li><a href="http://localhost/PROblemSolver/prova.php">Naviga Problemi</a></li>
 					<li><a href="http://localhost/PROblemSolver/report.php">Riporta Problema</a></li>
 					<li><a href="http://localhost/PROblemSolver/login.php">Login/Registrati</a></li>
+                    <li><a href="http://localhost/PROblemSolver/cerca.php"> Cerca Problemi</a><li>
 				</ul>
 
 			</nav>
@@ -117,6 +109,7 @@
 					<a href="http://localhost/PROblemSolver/prova.php">Naviga Problemi</a></a>
 					<a href="http://localhost/PROblemSolver/report.php">Riporta Problema</a>
 					<a href="http://localhost/PROblemSolver/login.php">Login/Registrati</a>
+                    <li><a href="http://localhost/PROblemSolver/cerca.php"> Cerca Problemi</a><li>
 			</div>
 </div>
 

@@ -61,6 +61,7 @@
 					<li> <a href="http://localhost/PROblemSolver/prova.php">Naviga Problemi</a></li>
 					<li> <a href="http://localhost/PROblemSolver/report.php">Riporta Problema</a></li>
 					<li> <a href="http://localhost/PROblemSolver/login.php">Login/Registrati</a></li>
+					<li><a href="http://localhost/PROblemSolver/cerca.php"> Cerca Problemi</a><li>
 				</ul>
 
 			</nav>
@@ -71,6 +72,7 @@
 					<a href="http://localhost/PROblemSolver/prova.php">Naviga Problemi</a></a>
 					<a href="http://localhost/PROblemSolver/report.php">Riporta Problema</a>
 					<a href="http://localhost/PROblemSolver/login.php">Login/Registrati</a>
+					<li><a href="http://localhost/PROblemSolver/cerca.php"> Cerca Problemi</a><li>
 			</div>
 
 			
@@ -85,7 +87,7 @@
 			<p>  <?php   
 			
 				 	if ($problemi["boolAnonimo"] == 0) {
-							echo'<p> codice segreto utente: ';echo $utenti["secretID"]; echo'</p>';
+							echo'<p> codice utente: ';echo $utenti["secretID"]; echo'</p>';
 						  echo ("che corrisponde all'utente: ".$utenti["Nome"]." " . $utenti[ "Cognome"]);
 					  }
 					else if($problemi["boolAnonimo"] == 1){
