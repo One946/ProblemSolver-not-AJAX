@@ -15,9 +15,6 @@
 <body>
 
 <div class="container">
-  <form>
-  
-
       <nav class="navbar">
           <span class="open-slide">
             <a href="#" onclick="openSlideMenu()">
@@ -47,7 +44,8 @@
             <li><a href="http://localhost/PROblemSolver/cerca.php"> Cerca Problemi</a><li>
         </div>
 
-<!--Form di registrazione-->   
+<!--Form di registrazione-->
+<form method="POST" action="register.php">
     <h1>Registrati</h1>
     <p>Inserisci i tuoi dati per creare un account.</p>
 
@@ -64,10 +62,13 @@
     <input type="text" placeholder="Codice Fiscale" name="cf" required maxlength="16" minlength="16">
 
     <label for="psw"><b> Password </b></label>
-    <input type="password" placeholder="Password" name="psw" required>
+    <input type="password" placeholder="Password" name="password" required>
 
-    <label for="psw-repeat"><b> Inserisci nuovamente la password </b></label>
-    <input type="password" placeholder="Password" name="psw-repeat" required>
+    <label for="pswr"><b> Inserisci nuovamente la password </b></label>
+    <input type="password" placeholder="Password" name="passwordr" required>
+
+    <label for="secretID"><b> Inserisci un numero utente che sarà utilizzato per garantire la tua privacy</b></label>
+    <input type="text" placeholder="secretID" name="secretID" required>
     
     
     <a class="termini" href="#" style="color:dodgerblue">Termini e Politiche di Privacy</a>

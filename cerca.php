@@ -1,6 +1,7 @@
 <?php
 //creo una sessione per rendere le operazioni meno "hardcoded"
-	session_start();    require("config/db.php");
+    session_start();    
+    require("config/db.php");
     require("config/config.php");
     $q= "SELECT * FROM Categorie WHERE 1";
     $ris=mysqli_query($conn,$q);

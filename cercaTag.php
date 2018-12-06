@@ -5,16 +5,7 @@
 //Query per selezionare tutti i problemi che non sono stati risolti e visualizzarli
 $tag= $_POST["cercaTag"];
 $arrayTag= explode(" ", $tag);
-var_dump($arrayTag);
-//$q="SELECT idTag from DizionarioTag WHERE descrizione= '".$arrayTag[0]."'";
-//echo($q);
-//Prendi il risultato
-//$risQ = mysqli_query($conn, $q);
-//Inserisco il risultato della query in un array associativo
-//$pippo= mysqli_fetch_all($risQ,MYSQLI_ASSOC); var_dump ($pippo);
-//FARE CICLO PER PIU' TAG
 $prob=[];
-
 
 for ($i=0; $i<count($arrayTag); $i++){
     $query1 = "SELECT * FROM Problemi  WHERE idProblema IN (SELECT idProblema FROM tagBridge WHERE idTag IN (SELECT idTag FROM DizionarioTag WHERE descrizione = '{$arrayTag[$i]}'))";
@@ -31,7 +22,6 @@ for ($i=0; $i<count($arrayTag); $i++){
         mysqli_free_result($ris);
     }
 }   
-var_dump($prob);
 mysqli_close($conn);
 
 ?>
