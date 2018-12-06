@@ -6,12 +6,12 @@
 $tag= $_POST["cercaTag"];
 $arrayTag= explode(" ", $tag);
 var_dump($arrayTag);
-$q="SELECT idTag from DizionarioTag WHERE descrizione= '".$arrayTag[0]."'";
-echo($q);
+//$q="SELECT idTag from DizionarioTag WHERE descrizione= '".$arrayTag[0]."'";
+//echo($q);
 //Prendi il risultato
-$risQ = mysqli_query($conn, $q);
+//$risQ = mysqli_query($conn, $q);
 //Inserisco il risultato della query in un array associativo
-$pippo= mysqli_fetch_all($risQ,MYSQLI_ASSOC); var_dump ($pippo);
+//$pippo= mysqli_fetch_all($risQ,MYSQLI_ASSOC); var_dump ($pippo);
 //FARE CICLO PER PIU' TAG
 $prob=[];
 
@@ -19,17 +19,19 @@ $prob=[];
 for ($i=0; $i<count($arrayTag); $i++){
     $query1 = "SELECT * FROM Problemi  WHERE idProblema IN (SELECT idProblema FROM tagBridge WHERE idTag IN (SELECT idTag FROM DizionarioTag WHERE descrizione = '{$arrayTag[$i]}'))";
     //Prendi il risultato
-    $ris1 = mysqli_query($conn, $query1);
+    $ris1 =mysqli_query($conn, $query1);
+    if($ris1){
     //Inserisco il risultato della query in un array associativo
-    $a= mysqli_fetch_all($ris1,MYSQLI_ASSOC);
-    if($a === []){
-        continue;
-    } else{
-        $prob[$i]= $a;
+        $a= mysqli_fetch_all($ris1,MYSQLI_ASSOC);
+        if(!is_null($a)){
+            array_push($prob,$a);
+        } else{
+            continue;
+        }
+        mysqli_free_result($ris);
     }
-    mysqli_free_result($ris);
 }   
-//var_dump($prob);
+var_dump($prob);
 mysqli_close($conn);
 
 ?>
