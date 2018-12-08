@@ -73,7 +73,6 @@ mysqli_close($conn);
                 echo("<h3>".$titoli["titolo"]."</h3>");
                 echo("<p>".$titoli["descrizione"]."</p>");
                 echo('<a class="btn btn-default" href="'.ROOT_URL.'problema.php?id='.$titoli["idProblema"].'"style="color: #3b5998;"><b>Per saperne di più</b></a>');
-                echo("<b>"."PIPPO"." </b>");
                 echo'</div>';  
             }
         }

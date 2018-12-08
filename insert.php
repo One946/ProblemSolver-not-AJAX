@@ -15,11 +15,19 @@
     } else{
         $anonimo = 0;
     }
-
+    
+    $qCat= "SELECT idCategoria FROM Categorie WHERE descrizione ='".$categoria."'";
+    echo($qCat); 
+    $risCat=mysqli_query($conn, $qCat);
+    if($risCat){
+        $cate=mysqli_fetch_assoc($risCat);
+    }else{
+        echo("errore nella selezione della categoria");
+    }
 
     //la variabile secretID viene presa dalla sessione dell'utente che ha effettuato il login
     //query di inserimento problema nel db
-    $qProb= "INSERT INTO Problemi (secretID, boolAnonimo, idUbicazione, idCategoria, descrizione, titolo) VALUES (".$_SESSION["secretID"].", ".$anonimo.", 2, 1, '".$descrizione."', '".$titolo."')" ;
+    $qProb= "INSERT INTO Problemi (secretID, boolAnonimo, idUbicazione, idCategoria, descrizione, titolo) VALUES (".$_SESSION["secretID"].", ".$anonimo.", 2,".$cate["idCategoria"]." , '".$descrizione."', '".$titolo."')" ;
    
    
     if (mysqli_query($conn, $qProb)) { //se la query va a buon fine eseguo la queri per ottenere l'id del problema creato che viene creato in automatico tramite l'auto increment
@@ -117,8 +125,9 @@
 
 <!--Esito dell'operazione-->
 <div class="stripe" style="opacity: 0.95;">
-<h1> <?php echo($b);?> </h1>
-<p> <? echo($k);?></p>
+<?php echo("<p> ".$k."parole a caso </p>");?>
+<?php echo(" CIAO");?>
+<p> <? echo($k."perchè non stampi?" );?></p>
 <a class="button button-default" href="http://localhost/PROblemSolver/index.php"><b>Torna alla home</b></a>
 </div>
 

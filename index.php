@@ -1,7 +1,6 @@
 <?php
 //creo una sessione per rendere le operazioni meno "hardcoded"
-	session_start();
-	$_SESSION["secretID"] = 45;
+	session_start();	
 ?>
 
 <!DOCTYPE html>

@@ -47,12 +47,14 @@
 		<!-- main body-->
 		<div class="logincontainer">
 			<img src="http://localhost/PROblemSolver/logocomune.png" class="logo">
-			<form>
-				<label for="uname"><b>Username</b></label>
-				<input type="text" name="Username" placeholder="Nome Utente" required>
-				<label for="psw"><b>Password</b></label>
+			
+			
+			<form method="POST" action="autentication.php">
+				<label for="email"><b>email</b></label>
+				<input type="text" name="email" placeholder="email@email.com" required>
+				<label for="password"><b>Password</b></label>
 				<input type="password" name="password" placeholder="Password" required>
-				<input type="submit" value="Login">
+				<button type="submit"> login </button>
 				<p><a href="http://localhost/PROblemSolver/registrati.php">Non sei ancora registrato? Registrati.</a></p>
 			</form>
 		</div>
