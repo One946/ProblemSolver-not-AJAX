@@ -10,7 +10,6 @@
     if($a){
         $utente=mysqli_fetch_assoc($a);
         $_SESSION["secretID"] = $utente['secretID'];
-        var_dump($utente);
     }
     
     $benvenuto="Bentornato ".$utente["Nome"]." ".$utente["Cognome"];

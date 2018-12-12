@@ -40,9 +40,10 @@
 			<div id="side-menu" class="side-nav">
 					<a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
 					<a href="#">Home</a>
-					<a href="#">Naviga Problemi</a></a>
-					<a href="#">Riporta Problema</a>
-					<a href="#">Login/Registrati</a>
+					<a href="http://localhost/PROblemSolver/prova.php">Naviga Problemi</a>
+					<a href="http://localhost/PROblemSolver/report.php">Riporta Problema</a>
+					<a href="http://localhost/PROblemSolver/login.php">Login/Registrati</a>
+					<a href="http://localhost/PROblemSolver/cerca.php"> Cerca Problemi</a>
 			</div>
 
 

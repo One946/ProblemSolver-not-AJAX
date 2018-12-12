@@ -135,7 +135,12 @@
 						<div style="opacity:0.95; background: #f4f4f4; margin: auto; width:1000px; border-radius: 20px; text-align: center; color: #3b5998;   ">
 							 <?php echo("<h3> id commento: ".$commenti[$i]["idCommento"]." </h3>");?>
 							<p> <?php echo $commenti[$i]["descrizione"];?></p>
-								<p><small>creato dall' utente con id <?php echo $commenti[$i]["secretId"];?></small></p> 
+								<p><small>creato dall' utente: <?php 
+								$query5= "SELECT Nome, Cognome FROM Utenti WHERE secretID = ". $commenti[$i]["secretId"];
+								$ris5= mysqli_query($conn, $query5);
+								$utente= mysqli_fetch_assoc($ris5);
+								echo ($utente["Nome"]." ". $utente["Cognome"]) ;
+								?></small></p> 
 
 						</div>
 					<?php endfor;?>

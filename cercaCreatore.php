@@ -2,9 +2,8 @@
     require("config/db.php");
     require("config/config.php");
     session_start();
-    var_dump($_POST);
 //Query per selezionare tutti i problemi che non sono stati risolti e visualizzarli2
-    $query1 = "SELECT * FROM Problemi  WHERE secretID IN (SELECT secretID FROM Utenti WHERE (Nome = '{$_POST['Nome']}') && (Cognome = '{$_POST['Cognome']}'))";
+    $query1 = "SELECT * FROM Problemi  WHERE secretID IN (SELECT secretID FROM Utenti WHERE (Nome = '{$_POST['Nome']}') && (Cognome = '{$_POST['Cognome']}')) && (boolAnonimo = 0)";
 
     
     //Prendi il risultato
@@ -39,7 +38,7 @@
             </span>
             <ul class="navbar-nav">
                 <li><a href="http://localhost/PROblemSolver/index.php">Home</a></li>
-                <li><a href="#">Naviga Problemi</a></li>
+                <li><a href="http://localhost/PROblemSolver/prova.php">Naviga Problemi</a></li>
                 <li><a href="http://localhost/PROblemSolver/report.php">Riporta Problema</a></li>
                 <li><a href="http://localhost/PROblemSolver/login.php">Login/Registrati</a></li>
                 <li><a href="http://localhost/PROblemSolver/cerca.php"> Cerca Problemi</a><li>
@@ -51,7 +50,7 @@
                 <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
                 <a href="http://localhost/PROblemSolver/index.php">Home</a>
                 <a href="http://localhost/PROblemSolver/prova.php">Naviga Problemi</a></a>
-                <a href="#">Riporta Problema</a>
+                <a href="http://localhost/PROblemSolver/prova.php">Riporta Problema</a>
                 <a href="http://localhost/PROblemSolver/login.php">Login/Registrati</a>
                 <li><a href="http://localhost/PROblemSolver/cerca.php"> Cerca Problemi</a><li>
             </div>

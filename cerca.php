@@ -32,7 +32,7 @@
 					</a>
 				</span>
 				<ul class="navbar-nav">
-                <li><a href="http://localhost/PROblemSolver/index.php"> Home</a><li>
+                    <li><a href="http://localhost/PROblemSolver/index.php"> Home</a><li>
 					<li><a href="http://localhost/PROblemSolver/prova.php">Naviga Problemi</a></li>
 					<li><a href="http://localhost/PROblemSolver/report.php">Riporta Problema</a></li>
 					<li><a href="http://localhost/PROblemSolver/login.php">Login/Registrati</a></li>
@@ -42,11 +42,11 @@
 			</nav>
 		<!--Menu a scomparsa-->
 			<div id="side-menu" class="side-nav">
-					<a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
-					<a href="#">Home</a>
-					<a href="#">Naviga Problemi</a></a>
-					<a href="#">Riporta Problema</a>
-					<a href="#">Login/Registrati</a>
+            <a href="http://localhost/PROblemSolver/index.php"> Home</a>
+			<a href="http://localhost/PROblemSolver/prova.php">Naviga Problemi</a>
+			<a href="http://localhost/PROblemSolver/report.php">Riporta Problema</a>
+			<a href="http://localhost/PROblemSolver/login.php">Login/Registrati</a>
+            <a href="http://localhost/PROblemSolver/cerca.php"> Cerca Problemi</a>
 			</div>
 
     <div class="stripe" style="opacity:0.94">
@@ -58,7 +58,9 @@
         
         <form method="POST" action="cercaCreatore.php">
         <label for="cercaCreatore"> <b>Cerca problemi per creatore </b></label><br>
-        <input type="text" name="Nome"  placeholder="NOME"> <input type="text" namespace="Cognome"  placeholder="COGNOME"> <button>Cerca!</button><br>
+        <input type="text" name="Nome"  placeholder="NOME"> 
+        <input type="text" name="Cognome"  placeholder="COGNOME"> 
+        <button>Cerca!</button><br>
         </form>
 
         <form method="POST" action="cercaAttivo.php">

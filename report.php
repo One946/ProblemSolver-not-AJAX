@@ -4,6 +4,8 @@
     require("config/config.php");
     $q= "SELECT * FROM Categorie WHERE 1";
     $ris=mysqli_query($conn,$q);
+    //$q2= "SELECT * FROM Ubicazioni WHERE 1";
+    //$ris2=mysqli_query($conn,$q2);
         
                         
 ?>
@@ -60,10 +62,16 @@
         <form method= 'POST' action="insert.php"  enctype="multipart/form-data">
             <label for="titolo"><b> Inserisci il titolo del problema: </b></label> <br>
             <input type="text" id="titolo" name="titolo" class="titolo" placeholder="TITOLO" required> <br>
+
             <label for="descrizione"><b> Descrivi il problema che hai riscontrato: </b></label> <br>
             <textarea name="descrizione" id="descrizione" class="descrizione" placeholder="Descrivi il problema che hai riscontrato..." required> </textarea><br>
+
             <label for="tag"><b>Inerisci alcuni tag per caratterizzare il problema</b></label> <br>
             <input type="text" id="tag" name="tag" class="tag" placeholder="Inserisci dei tag per caratterizzare il problema "> <br><br>
+
+            <label for="tag"><b>Inerisci l'ubicazione del problema</b></label> <br>
+            <input type="text" name="ubicazione" class="tag" placeholder="Inserisci l'ubicazione del problema"> <br><br>
+
             <input type="checkbox" id="anonimo" name="anonimo" class="anonimo">Desideri rimanere anonimo? <br><br>
             <p class="posiziona">Seleziona una categoria</p>
             <select type="text" id="categoria" name="categoria" class="categoria" required>
@@ -77,6 +85,17 @@
                         $i=0;
                 ?>
             </select>
+            <!--select type="text"name="ubicazione" class="categoria" required>
+                <?php  
+                        $i=0;
+                        $ubicazioni= mysqli_fetch_all($ris2,MYSQLI_ASSOC);
+                        while($i<count($ubicazioni)){
+                            echo'<option value="'.$ubicazioni[$i]['descrizione'].'">'.$ubicazioni[$i]['descrizione']."</option>";
+                            $i++;
+                        }
+                        $i=0;
+                ?>
+            </select-->
             <!--button type="submit" id="button"style ="margin-left: 300px;" onclick="sendProb()">Invia!</button-->
             <button type="submit" id="button"style ="margin-left: 300px;">Invia!</button>
 
